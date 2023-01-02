@@ -30,16 +30,16 @@ http://astronn.readthedocs.io/en/latest/tools_apogee.html#pseudo-continuum-norma
 Data Files
 ------------
 
-Please refer to `here`_ for the list of public data files we used in the paper
+Please refer to `data_files/README.rst`_ for the list of public data files we used in the paper
 
-.. _here: data_files/README.rst
+.. _data_files/README.rst: data_files/README.rst
 
 Python Scripts
 ------------------
 
-Please refer to `here`_ for the list of scripts. Execute any of these python script at the root directory of this repository.
+Please refer to `py/README.rst`_ for the list of scripts. Execute any of these python script at the root directory of this repository.
 
-.. _here: py/README.rst
+.. _py/README.rst: py/README.rst
 
 Jupyter Notebook
 ------------------
@@ -50,19 +50,19 @@ Jupyter Notebook
     | The notebook is used to train our Encoder-Decoder model
 -   | `Testing_AE_PSD.ipynb`_
     | The notebook is used to train our Encoder-Decoder model
--   | `Testing_Age_Spatial_Dist.ipynb`_
-    | The notebook is used to plot age spatial distribution
+-   | `Age_Science.ipynb`_
+    | The notebook is used to plot age spatial distribution and sciences
 
 .. _Datasets_Data_Reduction.ipynb: Datasets_Data_Reduction.ipynb
 .. _Training_AE_PSD.ipynb: Training_AE_PSD.ipynb
 .. _Testing_AE_PSD.ipynb: Testing_AE_PSD.ipynb
-.. _Testing_Age_Spatial_Dist.ipynb: Testing_Age_Spatial_Dist.ipynb
+.. _Age_Science.ipynb: Age_Science.ipynb
 
 Data Product
 --------------
 
 -   | `nn_latent_age_dr17.csv`_
-    | Data file containing latent space age from this paper, row matched to APOGEE DR17 ``allStar-dr17-synspec_rev1.fits``
+    | Data file containing latent space age from this paper where the data model is available there. Row matched to APOGEE DR17 ``allStar-dr17-synspec_rev1.fits``.
 
 .. _nn_latent_age_dr17.csv: nn_latent_age_dr17.csv
 
