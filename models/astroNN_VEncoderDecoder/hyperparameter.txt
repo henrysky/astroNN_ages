@@ -1,0 +1,18 @@
+Model: Convolutional Variational Autoencoder 
+Model Type: CVAE 
+astroNN identifier: ApokascEncoderDecoder 
+Python Version: 3.10.8 | packaged by conda-forge | (main, Nov 22 2022, 08:16:53) [MSC v.1929 64 bit (AMD64)] 
+astroNN Version: 1.1.dev0 
+Keras Version: 2.10.0 
+Tensorflow Version: 2.10.1 
+Folder Name: astroNN_VEncoderDecoder 
+Batch size: 128 
+Optimizer: Adam 
+Maximum Epochs: 150 
+Learning Rate: 0.0005 
+Validation Size: 0.0 
+Input Shape: {'input': (7514, 1)} 
+Label Shape: {'output': 2092} 
+Number of Training Data: 9769 
+Number of Validation Data: 0 
+Dropout Rate: 0.0 
