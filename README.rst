@@ -9,7 +9,7 @@ Getting Started
 This repository is to make sure all figures and results are reproducible by anyone easily for this paper, althought some data used are third party proprietary data.
 
 If Github has issue (or too slow) to load the Jupyter Notebooks, you can go
-http://nbviewer.jupyter.org/github/henrysky/astroNN_ages/tree/master/
+http://nbviewer.jupyter.org/github/henrysky/astroNN_ages/tree/main/
 
 This project use `lightkurve`_ to manage `Kepler` and `TESS` data
 
@@ -61,10 +61,10 @@ Jupyter Notebook
 Data Product
 --------------
 
--   | `nn_latent_age_dr17.csv`_
-    | Data file containing latent space age from this paper where the data model is available there. Row matched to APOGEE DR17 ``allStar-dr17-synspec_rev1.fits``.
+-   | `nn_latent_age_dr17.csv.gz`_
+    | Compressed data file containing latent space age from this paper where the data model is available there. Row matched to APOGEE DR17 ``allStar-dr17-synspec_rev1.fits``.
 
-.. _nn_latent_age_dr17.csv: nn_latent_age_dr17.csv
+.. _nn_latent_age_dr17.csv.gz: nn_latent_age_dr17.csv.gz
 
 If you need ``allStar-dr17-synspec_rev1.fits``, the direct link is https://data.sdss.org/sas/dr17/apogee/spectro/aspcap/dr17/synspec_rev1/allStar-dr17-synspec_rev1.fits
 
@@ -72,7 +72,7 @@ If you need ``allStar-dr17-synspec_rev1.fits``, the direct link is https://data.
 
     import pandas as pd
 
-    latent_space_age_file = pd.read_csv("./nn_latent_age_dr17.csv")
+    latent_space_age_file = pd.read_csv("./nn_latent_age_dr17.csv.gz")
 
     # 733901 rows
     print(len(latent_space_age_file))
