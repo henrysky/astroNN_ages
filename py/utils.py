@@ -1,10 +1,17 @@
 from matplotlib.cbook import file_requires_unicode
 import numpy as np
 import scipy
+from galpy.orbit import Orbit
+from galpy.util import conversion
+from galpy.actionAngle import actionAngleStaeckel, estimateDeltaStaeckel
+from galpy.potential import MWPotential2014
 
 
 zsolar = 0.0152
 ysolar = 0.2485
+_R0 = 8.23
+_v0 = 249.44
+_z0 = 0.0208
 
 
 def feh_to_z(feh):
@@ -307,3 +314,23 @@ def ES_num_to_word(es):
         return "RC"
     else:
         return "Unidentified"
+    
+    
+def orbits_params(vxvv):
+    _freq = conversion.freq_in_Gyr(_v0, _R0)
+    
+    # RA, DEC, dist (kpc), 
+    os = Orbit(np.array([vxvv[:, 0], vxvv[:, 1], vxvv[:, 2], vxvv[:, 3], vxvv[:, 4], vxvv[:, 5]]).T, radec=True, ro=_R0,
+            vo=_v0, zo=_z0, solarmotion=[-11.1, 25.7, 7.25])
+    galr = np.sqrt(os.x()**2 + os.y()**2)
+    galz = os.z()
+    sXYZ = np.dstack([os.x(), os.y(), os.z()])[0] / _R0
+    sRpz = np.dstack([os.R() / _R0, os.phi(), os.z() / _R0])[0]
+    svRvTvz = np.dstack([os.vR(), os.vT(), os.vz()])[0] / _v0
+
+    deltas = estimateDeltaStaeckel(MWPotential2014, np.median(sRpz[:, 0]), np.median(sRpz[:, 2]), no_median=True)
+    aAS = actionAngleStaeckel(pot=MWPotential2014, delta=np.mean(deltas))
+    action = aAS.actionsFreqsAngles(sRpz[:, 0], svRvTvz[:, 0], svRvTvz[:, 1], sRpz[:, 2], svRvTvz[:, 2], sRpz[:, 1], c=True)
+    jr, lz, jz = action[0] * _R0 * _v0, action[1] * _R0 * _v0, action[2] * _R0 * _v0
+    
+    return {"galr": galr, "galz": galz, "lz": lz, "jr": jr, "jz": jz}

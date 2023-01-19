@@ -5,7 +5,18 @@ from scipy.stats import binned_statistic_2d
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 
-def plot_alpha_age(ax, fe_h, alpha, age, range=((-0.55, 0.45), (-0.1, 0.4)), vmin=0, vmax=13, bins=[100, 100], cbar_label="Age (Gyr)"):
+def plot_alpha_age(
+    ax,
+    fe_h,
+    alpha,
+    age,
+    range=((-0.55, 0.45), (-0.1, 0.4)),
+    vmin=0,
+    vmax=13,
+    bins=[100, 100],
+    cbar_label="Age (Gyr)",
+    orientation="vertical",
+):
     """
     Plots [Fe/H]-[Alpha/M] colored by ages
     """
@@ -33,7 +44,7 @@ def plot_alpha_age(ax, fe_h, alpha, age, range=((-0.55, 0.45), (-0.1, 0.4)), vmi
         med.T,
         alpha=np.clip(count.T / np.percentile(count, 70), 0.0, 1.0),
         vmin=0,
-        vmax=13,
+        vmax=vmax,
         cmap="coolwarm",
         rasterized=True,
     )
@@ -44,7 +55,7 @@ def plot_alpha_age(ax, fe_h, alpha, age, range=((-0.55, 0.45), (-0.1, 0.4)), vmi
         med.T,
         alpha=0.0,
         vmin=0,
-        vmax=13,
+        vmax=vmax,
         cmap="coolwarm",
     )
     ax.set_xlim(range[0])
@@ -52,13 +63,23 @@ def plot_alpha_age(ax, fe_h, alpha, age, range=((-0.55, 0.45), (-0.1, 0.4)), vmi
     ax.set_ylabel(r"[$\alpha$/M] (dex)")
     ax.set_xlabel("[Fe/H] (dex)")
     divider = make_axes_locatable(ax)
-    cax = divider.append_axes("right", size="5%", pad=0.05)
+    if orientation == "vertical":
+        side = "right"
+    elif orientation == "horizontal":
+        side = "top"
+    else:
+        raise ValueError("Impossible orientation")
+    cax = divider.append_axes(side, size="5%", pad=0.05)
+
 
     cmap = mpl.cm.coolwarm
     norm = mpl.colors.Normalize(vmin=vmin, vmax=vmax)
     cbar = plt.colorbar(
-        mpl.cm.ScalarMappable(norm=norm, cmap=cmap), cax=cax, orientation="vertical"
+        mpl.cm.ScalarMappable(norm=norm, cmap=cmap), cax=cax, orientation=orientation
     )
+    if orientation == "horizontal":
+        cax.xaxis.set_ticks_position("top")
+        cax.xaxis.set_label_position("top")
     cbar.ax.tick_params()
     cbar.set_label(cbar_label)
     return ax

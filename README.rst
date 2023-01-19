@@ -38,8 +38,10 @@ Python Scripts
 ------------------
 
 Please refer to `py/README.rst`_ for the list of scripts. Execute any of these python script at the root directory of this repository.
+You might want to modify some paths for your own local machine in `py/__init__.py`_.
 
 .. _py/README.rst: py/README.rst
+.. _py/__init__.py: py/__init__.py
 
 Jupyter Notebook
 ------------------
