@@ -1,7 +1,7 @@
 Abstract
 ===========
 
-To be written
+Constraints on the formation and evolution of the Milky Way Galaxy require multi-dimensional measurements of kinematics, abundances, and ages for a large population of stars. Ages for luminous giants, which can be seen to large distances, are an essential component of studies of the Milky Way, but they are traditionally very difficult to estimate precisely for a large dataset and often require careful analysis on a star-by-star basis in asteroseismology. Because spectra are easier to obtain for large samples, being able to determine precise ages from spectra allows for large age samples to be constructed, but spectroscopic ages are often imprecise and contaminated by abundance correlations. Here we present an application of a variational encoder-decoder on cross-domain astronomical data to solve these issues. The model is trained on pairs of observations from APOGEE and Kepler of the same star in order to reduce the dimensionality of the APOGEE spectra in a latent space while removing abundance information. The low dimensional latent representation of these spectra can then be trained to predict age with just ~1,000 precise seismic ages. We demonstrate that this model produces more precise spectroscopic ages (~22% overall, ~11% for red-clump stars) than previous data-driven spectroscopic ages while being less contaminated by abundance information (in particular, our ages do not depend on [Alpha/M]). We create a public age catalog for the APOGEE DR17 data set and use it to map the age distribution and the age-[Fe/H]-[Alpha/M] distribution across the radial range of the Galactic disk.
 
 Getting Started
 ================
