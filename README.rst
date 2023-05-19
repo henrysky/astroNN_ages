@@ -43,8 +43,8 @@ You might want to modify some paths for your own local machine in `py/__init__.p
 .. _py/README.rst: py/README.rst
 .. _py/__init__.py: py/__init__.py
 
-Jupyter Notebook
-------------------
+Jupyter Notebooks and Graphics 
+------------------------------------
 
 -   | `Datasets_Data_Reduction.ipynb`_
     | The notebook is used to reduce data
@@ -59,6 +59,12 @@ Jupyter Notebook
 .. _Training_AE_PSD.ipynb: Training_AE_PSD.ipynb
 .. _Testing_AE_PSD.ipynb: Testing_AE_PSD.ipynb
 .. _Age_Science.ipynb: Age_Science.ipynb
+
+-   | `vae_fig.drawio`_
+    | Source for Figure 1 in the paper, can be opened and edited by `draw.io`_.
+
+.. _vae_fig.drawio: vae_fig.drawio
+.. _draw.io: https://draw.io/
 
 Data Product
 --------------
